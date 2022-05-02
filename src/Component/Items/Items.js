@@ -15,7 +15,7 @@ const Items = (props) => {
       <h1>{Supplier}</h1>
       <h1>{Price}</h1>
       <h1>{Qty}</h1>
-      <button onClick={handleManage} className="border-2 border-black">
+      <button onClick={handleManage} className="bg-red-500 p-3 rounded mb-2">
         Details
       </button>
     </div>
