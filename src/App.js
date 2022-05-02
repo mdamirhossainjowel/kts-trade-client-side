@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import ManageProducts from "./Component/ManageProducts/ManageProducts";
 import Inventory from "./Component/Inventory/Inventory";
 import AddItems from "./Component/AddItems/AddItems";
+import Login from "./Component/Login&Registration/Login";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/inventory" element={<Inventory></Inventory>}></Route>
         <Route path="/additems" element={<AddItems></AddItems>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
 
         <Route
           path="items/:item_id"

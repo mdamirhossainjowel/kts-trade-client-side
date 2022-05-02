@@ -7,7 +7,11 @@ const Inventory = () => {
     <div>
       <h1 className="text-4xl text-center">Stocked Items</h1>
       <Inventoryitems></Inventoryitems>
-      <Link to="/additems">Add New Items</Link>
+      <div className="text-center mb-5">
+        <Link className="bg-red-500 p-3 rounded" to="/additems">
+          Add New Items
+        </Link>
+      </div>
     </div>
   );
 };

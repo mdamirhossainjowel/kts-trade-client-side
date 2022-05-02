@@ -55,13 +55,21 @@ const Inventoryitems = () => {
   ];
   return (
     <div className="container mx-auto mt-5 mb-10">
-      <h1 className="text-center text-xl mb-5">Stored Products</h1>
-      <div className="grid grid-cols-3 gap-4 text-center">
+      <div className="grid lg:grid-cols-3 gap-4 text-center grid-cols-1 ">
         {products.map((product) => (
           <Items key={product.id} product={product}></Items>
         ))}
       </div>
-      <Link to="/inventory">Manage Inventory</Link>
+
+      {products.length === 6 ? (
+        <div className="text-center mt-5">
+          <Link className="bg-red-500 p-3 rounded" to="/inventory">
+            Manage Inventory
+          </Link>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

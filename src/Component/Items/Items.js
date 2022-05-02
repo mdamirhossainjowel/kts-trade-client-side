@@ -9,7 +9,7 @@ const Items = (props) => {
     navigate("/items/" + id);
   };
   return (
-    <div className="border-2 border-cyan-700">
+    <div className="border-2 border-cyan-700 rounded-2xl">
       <h1>{Name}</h1>
       <h1>{Descriptio}</h1>
       <h1>{Supplier}</h1>

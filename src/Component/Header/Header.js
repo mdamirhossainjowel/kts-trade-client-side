@@ -8,7 +8,7 @@ const Header = () => {
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <Link
-            className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-black"
+            className="text-xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-black"
             to="/home"
           >
             KTS Trade
@@ -30,20 +30,20 @@ const Header = () => {
         >
           <div className="nav-item flex flex-col lg:flex-row list-none lg:ml-auto">
             <Link
-              className="px-3 py-2 ml-2 flex items-center text-xs font-bold text-black hover:text-orange-600"
+              className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
               to="/home"
             >
               Home
             </Link>
 
             <Link
-              className="px-3 py-2 ml-2 flex items-center text-xs font-bold text-black hover:text-orange-600"
+              className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
               to="/inventory"
             >
               Inventory
             </Link>
             <Link
-              className="px-3 py-2 ml-2 flex items-center text-xs font-bold text-black hover:text-orange-600"
+              className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
               to="/login"
             >
               Login
