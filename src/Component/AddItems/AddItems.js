@@ -1,10 +1,30 @@
 import React from "react";
 
 const AddItems = () => {
+  const handleadditem = (e) => {
+    e.preventDefault();
+    const ItemName = e.target.item.value;
+    const Image = e.target.image.value;
+    const description = e.target.description.value;
+    const seller = e.target.seller.value;
+    const price = e.target.price.value;
+    const quantity = e.target.quantity.value;
+    const product = { ItemName, Image, description, seller, price, quantity };
+    console.log(product);
+    fetch("http://localhost:5000/product", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return (
     <div className="container mx-auto text-center">
       <h1 className="text-3xl mb-10">Add Item</h1>
-      <form>
+      <form onSubmit={handleadditem}>
         <input
           className="w-60 p-3 mb-3"
           type="text"
@@ -15,7 +35,7 @@ const AddItems = () => {
         <input
           className="w-60 p-3 mb-3"
           type="text"
-          name="item"
+          name="image"
           placeholder="Image"
         />
         <br />
