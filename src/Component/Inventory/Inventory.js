@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Inventoryitems from "../Home/InventoryItems/Inventoryitems";
+import useProducts from "../../useHooks/useProducts/useProducts";
+import Items from "../Items/Items";
 
 const Inventory = () => {
+  const [products] = useProducts();
   return (
-    <div>
-      <h1 className="text-4xl text-center">Stocked Items</h1>
-      <Inventoryitems></Inventoryitems>
-      <div className="text-center mb-5">
+    <div className="container mx-auto">
+      <h1 className="text-4xl">Stocked Items</h1>
+      <div className="grid lg:grid-cols-3 gap-4 grid-cols-1 ">
+        {products?.map((product) => (
+          <Items key={product._id} product={product}></Items>
+        ))}
+      </div>
+      <div className="text-center  my-5">
         <Link className="bg-red-500 p-3 rounded" to="/additems">
           Add New Items
         </Link>

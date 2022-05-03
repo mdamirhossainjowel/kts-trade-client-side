@@ -10,7 +10,7 @@ const AddItems = () => {
     const price = e.target.price.value;
     const quantity = e.target.quantity.value;
     const product = { ItemName, Image, description, seller, price, quantity };
-    console.log(product);
+
     fetch("http://localhost:5000/product", {
       method: "POST",
       headers: {
@@ -39,7 +39,7 @@ const AddItems = () => {
           placeholder="Image"
         />
         <br />
-        <input
+        <textarea
           className="w-60 p-3 mb-3"
           type="text"
           name="description"
