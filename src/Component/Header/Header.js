@@ -85,7 +85,7 @@ const Header = () => {
               </Link>
               <Link
                 className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
-                to="/"
+                to="/blogs"
               >
                 Blogs
               </Link>

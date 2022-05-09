@@ -9,6 +9,8 @@ import AddItems from "./Component/AddItems/AddItems";
 import Login from "./Component/Login&Registration/Login";
 import Registration from "./Component/Login&Registration/Registration";
 import RequireAuth from "./Component/Shared/RequireAuth";
+import PagenotFound from "./Component/PagenotFound/PagenotFound";
+import Blogs from "./Component/Blogs/Blogs";
 
 function App() {
   return (
@@ -44,6 +46,8 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+        <Route path="*" element={<PagenotFound></PagenotFound>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
       </Routes>
 
       <Footer></Footer>
