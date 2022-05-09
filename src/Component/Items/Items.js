@@ -10,16 +10,18 @@ const Items = (props) => {
     navigate("/items/" + _id);
   };
   return (
-    <div className="border-2 border-cyan-700 rounded-2xl">
-      <img src={Image} alt="" />
-      <h1>{ItemName}</h1>
-      <h1>{description}</h1>
-      <h1>{seller}</h1>
-      <h1>{price}</h1>
-      <h1>{quantity}</h1>
-      <button onClick={handleManage} className="bg-red-500 p-3 rounded mb-2">
-        Details
-      </button>
+    <div className="border-2 border-cyan-700 rounded-2xl p-3">
+      <img className="rounded-xl" src={Image} alt="" />
+      <h1 className="text-xl my-2">Product: {ItemName}</h1>
+      <h1 className="text-sm my-2">Description: {description}</h1>
+      <h1 className=" my-2">Seller: {seller}</h1>
+      <h1 className=" my-2">Price: {price}</h1>
+      <h1 className=" my-2">Quantity{quantity}</h1>
+      <div className="text-center">
+        <button onClick={handleManage} className="bg-red-500 p-3 rounded mb-2">
+          Details
+        </button>
+      </div>
     </div>
   );
 };

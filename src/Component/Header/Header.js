@@ -1,8 +1,13 @@
-import React from "react";
+import { signOut } from "firebase/auth";
+import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../_firebase.init";
 
 const Header = () => {
-  const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [user] = useAuthState(auth);
+
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-white mb-3">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
@@ -28,27 +33,72 @@ const Header = () => {
           }
           id="example-navbar-danger"
         >
-          <div className="nav-item flex flex-col lg:flex-row list-none lg:ml-auto">
-            <Link
-              className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
-              to="/home"
-            >
-              Home
-            </Link>
+          {!user ? (
+            <div className="nav-item flex flex-col lg:flex-row list-none lg:ml-auto">
+              <Link
+                className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
+                to="/home"
+              >
+                Home
+              </Link>
 
-            <Link
-              className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
-              to="/inventory"
-            >
-              Inventory
-            </Link>
-            <Link
-              className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
-              to="/login"
-            >
-              Login
-            </Link>
-          </div>
+              <Link
+                className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
+                to="/inventory"
+              >
+                Inventory
+              </Link>
+
+              <Link
+                className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
+                to="/login"
+              >
+                Login
+              </Link>
+            </div>
+          ) : (
+            <div className="nav-item flex flex-col lg:flex-row list-none lg:ml-auto">
+              <Link
+                className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
+                to="/home"
+              >
+                Home
+              </Link>
+
+              <Link
+                className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
+                to="/inventory"
+              >
+                Inventory
+              </Link>
+              <Link
+                className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
+                to="/additems"
+              >
+                Add Items
+              </Link>
+              <Link
+                className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
+                to="/"
+              >
+                My Items
+              </Link>
+              <Link
+                className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
+                to="/"
+              >
+                Blogs
+              </Link>
+
+              <Link
+                className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
+                to="/login"
+                onClick={() => signOut(auth)}
+              >
+                Signout
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </nav>
