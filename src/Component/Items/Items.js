@@ -18,7 +18,7 @@ const Items = (props) => {
       <h1 className=" my-2">Price: {price}</h1>
       <h1 className=" my-2">Quantity{quantity}</h1>
       <div className="text-center">
-        <button onClick={handleManage} className="bg-red-500 p-3 rounded mb-2">
+        <button onClick={handleManage} className="bg-cyan-300 p-3 rounded mb-2">
           Details
         </button>
       </div>

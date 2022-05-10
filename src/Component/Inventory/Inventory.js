@@ -14,7 +14,7 @@ const Inventory = () => {
         ))}
       </div>
       <div className="text-center  my-5">
-        <Link className="bg-red-500 p-3 rounded" to="/additems">
+        <Link className="bg-cyan-300 p-3 rounded" to="/additems">
           Add New Items
         </Link>
       </div>

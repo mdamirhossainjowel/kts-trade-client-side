@@ -22,7 +22,7 @@ const Contact = () => {
         />
         <br />
         <input
-          className="p-2 mb-3 bg-red-500 rounded "
+          className="p-2 mb-3 bg-cyan-300 rounded "
           type="submit"
           value="Comment"
         />

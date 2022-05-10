@@ -8,21 +8,18 @@ const Inventoryitems = () => {
   const newpro = products?.slice(0, 6);
   return (
     <div className="container mx-auto mt-5 mb-10">
+      <h1 className="text-center text-3xl mt-10 mb-5">Stored Products</h1>
       <div className="grid lg:grid-cols-3 gap-4 grid-cols-1 ">
         {newpro?.map((product) => (
           <Items key={product._id} product={product}></Items>
         ))}
       </div>
 
-      {newpro?.length === 6 ? (
-        <div className="text-center mt-5">
-          <Link className="bg-red-500 p-3 rounded" to="/inventory">
-            Manage Inventory
-          </Link>
-        </div>
-      ) : (
-        ""
-      )}
+      <div className="text-center mt-10">
+        <Link className="bg-cyan-300 p-3 rounded" to="/inventory">
+          Manage Inventory
+        </Link>
+      </div>
     </div>
   );
 };

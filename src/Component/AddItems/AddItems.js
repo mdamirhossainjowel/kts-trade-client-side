@@ -11,7 +11,7 @@ const AddItems = () => {
     const quantity = e.target.quantity.value;
     const product = { ItemName, Image, description, seller, price, quantity };
 
-    fetch("http://localhost:5000/product", {
+    fetch("https://vast-plateau-80261.herokuapp.com/product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +67,7 @@ const AddItems = () => {
           placeholder="Quantity"
         />
         <br />
-        <input className="bg-red-500 p-3 mb-3 rounded" type="Submit" />
+        <input className="bg-cyan-300 p-3 mb-3 rounded" type="Submit" />
         <br />
       </form>
     </div>

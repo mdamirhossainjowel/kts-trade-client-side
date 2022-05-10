@@ -1,6 +1,6 @@
 # KTS Trade
 
-Live Site [KTS Trade](https://explorewithamir-c33b7.firebaseapp.com/).
+Live Site [KTS Trade](https://ktstradeofficial.web.app/).
 
 ## Project Description
 
