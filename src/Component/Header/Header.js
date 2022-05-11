@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../_firebase.init";
+import menuicon from "../../Utilities/Images/menu-icon.png";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -23,7 +24,7 @@ const Header = () => {
             type="button"
             onClick={() => setNavbarOpen(!navbarOpen)}
           >
-            X
+            <img src={menuicon} alt="" />
           </button>
         </div>
         <div
@@ -48,7 +49,12 @@ const Header = () => {
               >
                 Inventory
               </Link>
-
+              <Link
+                className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
+                to="/blogs"
+              >
+                Blogs
+              </Link>
               <Link
                 className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
                 to="/login"
@@ -79,7 +85,7 @@ const Header = () => {
               </Link>
               <Link
                 className="px-3 py-2 ml-2 flex items-center text-xl  font-bold text-black hover:text-orange-600"
-                to="/"
+                to="/myitem"
               >
                 My Items
               </Link>

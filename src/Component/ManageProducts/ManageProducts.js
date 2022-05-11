@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ManageProducts = () => {
   const { item_id } = useParams();
   const [product, setProduct] = useState([]);
   const [qty, setQty] = useState("");
+  let navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://vast-plateau-80261.herokuapp.com/product/${item_id}`)
@@ -25,17 +26,17 @@ const ManageProducts = () => {
       })
         .then((res) => res.json())
         .then((data) => console.log(data));
+      window.location.reload(true);
     }
   };
   const handleQty = (e) => {
     setQty(e.target.value);
-    console.log(qty);
   };
   const handleRestock = (e) => {
     let quantity = product.quantity;
 
     let addQty = parseInt(qty);
-    console.log(addQty);
+
     if (addQty >= 1) {
       quantity = quantity + addQty;
       const updatedQty = { quantity };
@@ -48,9 +49,20 @@ const ManageProducts = () => {
       })
         .then((res) => res.json())
         .then((data) => console.log(data));
+      window.location.reload(true);
     }
   };
-
+  const handleDelete = (e) => {
+    const proceed = window.confirm("Wants To Delete");
+    if (proceed) {
+      fetch(`https://vast-plateau-80261.herokuapp.com/product/${item_id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+      navigate("/inventory");
+    }
+  };
   return (
     <div className="container mx-auto my-10">
       <div className=" flex lg:flex-row flex-col ">
@@ -85,9 +97,17 @@ const ManageProducts = () => {
           onClick={() => {
             handleRestock();
           }}
-          className="btn bg-cyan-300 p-3 rounded"
+          className="btn bg-cyan-300 p-3 rounded mb-5"
         >
           Restock
+        </button>
+        <button
+          onClick={() => {
+            handleDelete();
+          }}
+          className="btn bg-cyan-300 p-3 rounded"
+        >
+          Delete This Item
         </button>
       </div>
     </div>

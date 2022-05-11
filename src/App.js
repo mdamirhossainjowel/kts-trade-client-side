@@ -11,6 +11,7 @@ import Registration from "./Component/Login&Registration/Registration";
 import RequireAuth from "./Component/Shared/RequireAuth";
 import PagenotFound from "./Component/PagenotFound/PagenotFound";
 import Blogs from "./Component/Blogs/Blogs";
+import Myitem from "./Component/Myitem/Myitem";
 
 function App() {
   return (
@@ -43,6 +44,14 @@ function App() {
           element={
             <RequireAuth>
               <ManageProducts></ManageProducts>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="myitem"
+          element={
+            <RequireAuth>
+              <Myitem></Myitem>
             </RequireAuth>
           }
         ></Route>

@@ -1,6 +1,10 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../_firebase.init";
 
 const AddItems = () => {
+  const [user] = useAuthState(auth);
+  console.log(user.uid);
   const handleadditem = (e) => {
     e.preventDefault();
     const ItemName = e.target.item.value;
@@ -9,7 +13,16 @@ const AddItems = () => {
     const seller = e.target.seller.value;
     const price = e.target.price.value;
     const quantity = e.target.quantity.value;
-    const product = { ItemName, Image, description, seller, price, quantity };
+    const userItem = user.uid;
+    const product = {
+      ItemName,
+      Image,
+      description,
+      seller,
+      price,
+      quantity,
+      userItem,
+    };
 
     fetch("https://vast-plateau-80261.herokuapp.com/product", {
       method: "POST",
@@ -20,6 +33,7 @@ const AddItems = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    e.target.reset();
   };
   return (
     <div className="container mx-auto text-center">

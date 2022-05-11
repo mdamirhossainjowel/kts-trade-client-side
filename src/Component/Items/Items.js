@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useNavigate } from "react-router-dom";
 
 const Items = (props) => {
@@ -16,7 +17,7 @@ const Items = (props) => {
       <h1 className="text-sm my-2">Description: {description}</h1>
       <h1 className=" my-2">Seller: {seller}</h1>
       <h1 className=" my-2">Price: {price}</h1>
-      <h1 className=" my-2">Quantity{quantity}</h1>
+      <h1 className=" my-2">Quantity: {quantity}</h1>
       <div className="text-center">
         <button onClick={handleManage} className="bg-cyan-300 p-3 rounded mb-2">
           Details

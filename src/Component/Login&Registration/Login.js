@@ -12,9 +12,8 @@ const Login = () => {
   let location = useLocation();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const [signInWithEmailAndPassword, loading] =
-    useSignInWithEmailAndPassword(auth);
-  const [user] = useAuthState(auth);
+  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+  const [user, loading] = useAuthState(auth);
   let from = location.state?.from?.pathname || "/";
   const [signInWithGoogle] = useSignInWithGoogle(auth);
   // const [updatePassword] = useUpdatePassword(auth);
@@ -22,7 +21,9 @@ const Login = () => {
   // //   setName(e.target.value);
   // // };
   // const [massage, setMassage] = useState("");
-
+  if (loading) {
+    return <h1 className="text-2xl text-center mb-10"> Loading....... </h1>;
+  }
   const handleEmailBlur = (e) => {
     setemail(e.target.value);
   };
@@ -45,10 +46,10 @@ const Login = () => {
   // };
 
   return (
-    <div className="w-1/2 mx-auto text-center mb-5 bg-slate-100 border-2 p-5">
+    <div className="lg:w-1/2 mx-auto text-center mb-5 bg-slate-100 border-2 p-5">
       <form onSubmit={handleSubmit}>
         <input
-          className="p-2 mb-3 border-2 rounded w-1/2"
+          className="p-2 mb-3 border-2 rounded lg:w-1/2"
           type="text"
           name="email"
           onBlur={handleEmailBlur}
@@ -58,7 +59,7 @@ const Login = () => {
 
         <br />
         <input
-          className="p-2 mb-3 border-2 rounded w-1/2"
+          className="p-2 mb-3 border-2 rounded lg:w-1/2"
           type="password"
           name="password"
           onBlur={handlePasswordBlur}
@@ -66,7 +67,7 @@ const Login = () => {
         />
         <br />
         <input
-          className="p-2 mb-3 bg-red-500 rounded "
+          className="p-2 mb-3 bg-cyan-300 rounded "
           type="submit"
           value="Login"
         />
@@ -75,12 +76,12 @@ const Login = () => {
           create new account?
         </Link>
       </form>
-      <div className="w-1/2 mx-auto text-center my-3">
+      <div className="lg:w-1/2 mx-auto text-center my-3">
         <p>---------------------or---------------------</p>
       </div>
-      <div className="w-1/2 mx-auto text-center">
+      <div className="lg:w-1/2 mx-auto text-center">
         <button
-          className="bg-red-500 p-3 rounded mb-2"
+          className="bg-cyan-300 p-3 rounded mb-2"
           onClick={() => {
             signInWithGoogle();
           }}

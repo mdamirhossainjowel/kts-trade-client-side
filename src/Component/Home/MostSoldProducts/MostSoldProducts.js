@@ -12,7 +12,7 @@ const MostSoldProducts = () => {
         Most Sold Products
       </h1>
       {newpro?.map((product) => (
-        <div className=" flex lg:flex-row flex-col ">
+        <div key={product._id} className=" flex lg:flex-row flex-col ">
           <div className="lg:w-1/2 mx-auto lg:ml-20">
             <img src={product.Image} alt="" />
           </div>
